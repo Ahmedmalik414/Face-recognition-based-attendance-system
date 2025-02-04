@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Face Recognition{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img  src="/static/logo.jpeg" alt="Logo">
+            <p><a href="#">FacePicker</a></p>
+        </div>
+        <div class="links">
+            
+                
+           
+                <li><a href="#"> Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">About Us</a></li>
+            
+        </div>
+ 
+        <div class="buttons">
+            <button class="nav_button second " type="submit ">Sign in</button>
+            <button class="nav_button first "  type="submit">Get started today</button>
+        </div>
+        <div class="menu_bar">
+           <a href="#">&#8801;</a>
+        </div>
+
+       
+    </div>
+    <div class="title">
+        <h2>Face Recognition System</h2>
+      </div>
+    
+    <div class="main_body">
+        
+      
+        <div class="camera">
+            <div class="camera-container">
+                <video id="camera-feed" autoplay></video>
+                <canvas id="snapshotCanvas" style="display:none;"></canvas>
+
+            </div>
+            <div class="cam_control">
+                <button id="toggle-camera" class="btn">Open Camera</button>
+                <button id="snapshot-button" class="btn" ><a href="http://127.0.0.1:5000/upload_snapshot"></a>Take Snapshot</button>
+            </div>
+            
+        </div>
+
+
+        <div class="content">
+            <p >Welcome to our Face Recognition System! With just one click, activate your camera
+                to recognize faces in real time. Capture snapshots effortlessly and enjoy a sleek, user-friendly
+                interface designed for quick and accurate face detection. Experience the future of technology at your
+                fingertips!</p>
+        </div>
+    </div>
+
+
+    
+    <div class="img-input">
+        <h2>Submit a Face Image (JPG, JPEG)</h2>
+        <form id="upload-form" method="POST" action="/upload_snapshot" enctype="multipart/form-data">
+            <input type="file" name="image" accept=".jpg,.jpeg" required>
+            <button type="submit" id="upload-button" class="btn">Upload Image</button>
+        </form>
+    </div>
+    <footer>
+        
+        <div class="logo_div">
+            
+            <div class="logo_ft">
+                <img  src="/static/logo.jpeg" alt="Logo">
+            <p><a href="#">FacePicker</a></p>
+            </div>
+            <p> With just one click, activate your camera
+                to recognize faces in real time. Capture snapshots effortlessly and enjoy a sleek, user-friendly
+                interface designed for quick and accurate face detection. </p>
+                
+        </div>
+        <div class="contact_div">
+            
+
+
+
+
+<h4>Links</h4>
+<ul>
+<li>Contact Us</li>
+    <li>Privacy</li>
+    <li>Terms & Conditions</li>
+    <li>Complaints & Disputes</li>
+    <li>About Us</li>
+</ul>
+        </div>
+        <div class="social_media">
+            <h4>Follow us</h4>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <h4>Download</h4>
+            <div class="download">
+                <div class="download1">
+                    <div class="icon1">
+                        <a href="#"><i class="fa-brands fa-google-play social"></i></a>
+                    </div>
+                   <div class="content1"><span style="font-size: 0.8rem;font-weight: 500;">Get it on </span><br><span style="font-size: 1.3rem;">Google play</span></div> 
+                    
+                </div>
+                <div class="download2">
+                    <div class="icon2">
+                        <a href="#"><i class="fa-brands fa-apple social"></i></a>
+                    </div>
+                    <div class="content2">
+                        <span style="font-size: 0.8rem;font-weight: 500;">Download it on </span> <br><span style="font-size: 1.3rem;"><span style="font-size: 1.3rem;">App store</span></span>
+                    </div>
+                   
+                </div>
+            </div>
+           
+            
+        </div>
+        
+    </footer>
+    
+    
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

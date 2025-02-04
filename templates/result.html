@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Results_Page</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="/static/styles.css">
+    </head>
+
+    <body>
+        <div class="navbar">
+            <div class="logo">
+                <img src="/static/logo.jpeg" alt="Logo">
+                <p><a href="#">FacePicker</a></p>
+            </div>
+            <div class="links">
+
+
+
+                <li><a href="#"> Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">About Us</a></li>
+
+
+            </div>
+
+
+
+        </div>
+
+        <div class="title">
+            <h3>Face Recognition Result</h3>
+        </div>
+
+        <div class="result_div">
+
+            <p class="lead">Here are the results of the face recognition analysis.</p>
+
+
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2 style="color:#1c83eb; ">Recognition Details</h2>
+                </div>
+                <div class="card-body text-center">
+                    {% if predicted_class_name == 'Unknown' %}
+                    {% set link = 'static/persons/download.jpg' %}
+
+                    {%elif predicted_class_name == "No face detected\nTry Again!"%}
+                    {% set link = 'static/persons/conf.jpg' %}
+                    {% else%}
+                    {% set link = 'static/persons/' + predicted_class_name + '.jpg' %}
+
+                    {% endif %}
+
+                    <img class="res_img" src="{{ link }}" style="width: 150px; height: 150px;"
+                        alt="{{ predicted_class_name }}">
+                    <h1>{{ predicted_class_name }}</h1>
+                    <h3 class="card-title"></h3>
+                    <p class="card-text">Confidence: {{ prediction | round(2) }}%</p>
+                    <p class="card-text text-muted">Matched against the database on <strong>{{date}} at
+                            {{time}}</strong>
+                    </p>
+                </div>
+
+
+                <div class="result_btn">
+                    <button onclick="location.href='/'" class="btn btn-primary me-2"><i class="first fa-home"></i> Go
+                        Back Home</button>
+
+                    <input type="hidden" id="predicted_class_name" value="{{ predicted_class_name }}">
+                    <button id="xyz" class="btn btn-secondary" onclick="markAttendance()">
+                        <i class="fas fa-upload"></i> Mark Attendance
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+        <script src="/static/script.js"></script>
+
+
+    </body>
+
+</html>

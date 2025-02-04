@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="#">
+            <img src="/static/logo.jpeg" alt="Logo">
+        </a>
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-star"></i> Features</a></li>
+            <li><a href="#"><i class="fas fa-info-circle"></i> Lorem</a></li>
+        </ul>
+    </div>
+
+    <div class="content-container">
+        <div>
+            <div class="camera-container">
+                <video id="camera-feed" autoplay></video>
+            </div>
+
+            <div class="camera-controls">
+                <button id="toggle-camera" class="btn">Open Camera</button>
+                <button id="snapshot-button" class="btn" disabled>Take Snapshot</button>
+            </div>
+        </div>
+
+        <div class="description-container">
+            <h1 class="description-heading">Face Recognition</h1>
+            <p class="description-text"><b>Welcome to our Face Recognition System! With just one click, activate your camera to recognize faces in real time. Capture snapshots effortlessly and enjoy a sleek, user-friendly interface designed for quick and accurate face detection. Experience the future of technology at your fingertips!</b></p>
+        </div>
+    </div>
+    <div class="img-input">
+        <h2>Submit a Face Image (JPG, JPEG)</h2>
+        <form method="POST" action="/upload" enctype="multipart/form-data">
+            <input type="file" name="image" accept=".jpg,.jpeg" required>
+            <button type="submit" class="btn">Upload Image</button>
+        </form>
+        
+    
+    </div>
+  
+    <script src="/static/script.js"></script>
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Recognition result</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#">
+            <img src="/static/logo.jpeg" alt="Logo">
+        </a>
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-star"></i> Features</a></li>
+            <li><a href="#"><i class="fas fa-info-circle"></i> Lorem</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container d-flex flex-column align-items-center justify-content-center mt-6 pt-5"> <!-- Increased margin-top and padding-top -->
+        <!-- Title Section -->
+        <div class="text-center mb-4">
+            <h1 class="display-4">Face Recognition Result</h1>
+            <p class="lead">Here are the results of the face recognition analysis.</p>
+        </div>
+
+        <!-- Result Section -->
+        <div class="col-lg-8 col-md-10"> <!-- Adjusted column width -->
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2>Recognition Details</h2>
+                </div>
+                <div class="card-body text-center">
+                    <img src="/static/recognized_face.jpg" alt="Recognized Face" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px;">
+                    <h3 class="card-title">John Doe</h3>
+                    <p class="card-text">Confidence: 98%</p>
+                    <p class="card-text text-muted">Matched against the database on <strong>October 1, 2024</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Buttons Section -->
+            <div class="text-center mt-4">
+                <button onclick="location.href='/'" class="btn btn-primary me-2"><i class="fas fa-home"></i> Go Back Home</button>
+                <button onclick="location.href='/new-upload'" class="btn btn-secondary"><i class="fas fa-upload"></i> Upload New Image</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
